@@ -58,7 +58,8 @@ function cellClick() {
     //  после каждого хода нужно проверять  воспадают ли текущие положения игрока с выиграшными положениями.
 
     if (checkWin(data)) {
-        alert("Выиграл: " + player);
+        
+        restart("Выиграл: " + player);
     } else {
         let draw = true;
         for (let i in cell) {
@@ -89,4 +90,11 @@ function checkWin(data) {
         if (win) return true;
     }
     return false;
+}
+
+function restart(text) {
+    alert(text);
+    for (let i; i < cell.length; i++) {
+        cell[i].innerHtml = '';
+    }
 }
